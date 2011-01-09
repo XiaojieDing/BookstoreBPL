@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns0="http://enterprise.netbeans.org/bpel/BookstoreBPL/BoostoreBPL" xmlns:ns1="http://bookstore/" xmlns:ns2="http://infosys.tuwien.ac.at/aic10/ass1/dto/customermanagement" xmlns:ns3="http://infosys.tuwien.ac.at/aic10/ass1/dto/warehouse" xmlns:ns4="http://infosys.tuwien.ac.at/aic10/ass1/dto/shipping" xmlns:ns5="http://www.sun.com/jbi/descriptor/service-unit" version="1.0">
+    <services binding-component="false">
+        <provides endpoint-name="BookstoreProvider_myRole" interface-name="ns1:Bookstore" service-name="ns0:Bookstore">
+            <ns5:display-name>Bookstore</ns5:display-name>
+            <ns5:process-name>BoostoreBPL</ns5:process-name>
+            <ns5:file-path>BoostoreBPL.bpel</ns5:file-path>
+        </provides>
+        <consumes endpoint-name="CustomermanagementProvider_partnerRole" interface-name="ns2:CustomerManagement" service-name="ns0:CustomerManagement">
+            <ns5:display-name>CustomerManagement</ns5:display-name>
+            <ns5:process-name>BoostoreBPL</ns5:process-name>
+            <ns5:file-path>BoostoreBPL.bpel</ns5:file-path>
+        </consumes>
+        <consumes endpoint-name="WarehouseProvider_partnerRole" interface-name="ns3:Warehouse" service-name="ns0:Warehouse">
+            <ns5:display-name>Warehouse</ns5:display-name>
+            <ns5:process-name>BoostoreBPL</ns5:process-name>
+            <ns5:file-path>BoostoreBPL.bpel</ns5:file-path>
+        </consumes>
+        <consumes endpoint-name="SupplierProvider_partnerRole" interface-name="ns1:Supplier" service-name="ns0:Supplier">
+            <ns5:display-name>Supplier</ns5:display-name>
+            <ns5:process-name>BoostoreBPL</ns5:process-name>
+            <ns5:file-path>BoostoreBPL.bpel</ns5:file-path>
+        </consumes>
+        <consumes endpoint-name="ShippingProvider_partnerRole" interface-name="ns4:ShippingService" service-name="ns0:Shipping">
+            <ns5:display-name>Shipping</ns5:display-name>
+            <ns5:process-name>BoostoreBPL</ns5:process-name>
+            <ns5:file-path>BoostoreBPL.bpel</ns5:file-path>
+        </consumes>
+    </services>
+</jbi>

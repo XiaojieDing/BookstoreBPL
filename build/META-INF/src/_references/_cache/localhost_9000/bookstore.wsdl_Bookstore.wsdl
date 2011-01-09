@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="Bookstore" targetNamespace="http://bookstore/" xmlns:ns1="http://bookstore/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://bookstore/" version="1.0" xmlns:tns="http://bookstore/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="address" type="tns:address" />
+<xs:element name="customer" type="tns:customer" />
+<xs:element name="item" type="tns:item" />
+<xs:element name="order" type="tns:order" />
+<xs:element name="product" type="tns:product" />
+<xs:element name="requestOrder" type="tns:requestOrder" />
+<xs:element name="requestOrderResponse" type="tns:requestOrderResponse" />
+<xs:complexType name="requestOrder">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:order" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="order">
+<xs:sequence>
+<xs:element minOccurs="0" name="customer" type="tns:customer" />
+<xs:element minOccurs="0" name="orderDate" type="xs:dateTime" />
+<xs:element minOccurs="0" name="items">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:item" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" />
+</xs:complexType>
+<xs:complexType name="customer">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string" />
+<xs:element minOccurs="0" name="openBalance" type="xs:decimal" />
+<xs:element minOccurs="0" name="addresses">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="address" type="tns:address" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="orders">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="tns:order" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="message" type="xs:string" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" />
+</xs:complexType>
+<xs:complexType name="address">
+<xs:sequence>
+<xs:element minOccurs="0" name="street" type="xs:string" />
+<xs:element minOccurs="0" name="city" type="xs:string" />
+<xs:element minOccurs="0" name="zipCode" type="xs:string" />
+<xs:element name="house" type="xs:int" />
+<xs:element name="door" type="xs:int" />
+<xs:element name="isShipping" type="xs:boolean" />
+<xs:element name="isBilling" type="xs:boolean" />
+<xs:element name="isOther" type="xs:boolean" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" />
+</xs:complexType>
+<xs:complexType name="item">
+<xs:sequence>
+<xs:element name="quantity" type="xs:int" />
+<xs:element minOccurs="0" name="product" type="tns:product" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="product">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string" />
+<xs:element minOccurs="0" name="singleUnitPrice" type="xs:decimal" />
+<xs:element minOccurs="0" name="items">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:item" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" />
+</xs:complexType>
+<xs:complexType name="requestOrderResponse">
+<xs:sequence />
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="requestOrderResponse">
+    <wsdl:part element="ns1:requestOrderResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="requestOrder">
+    <wsdl:part element="ns1:requestOrder" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Bookstore">
+    <wsdl:operation name="requestOrder">
+      <wsdl:input message="ns1:requestOrder" name="requestOrder">
+    </wsdl:input>
+      <wsdl:output message="ns1:requestOrderResponse" name="requestOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

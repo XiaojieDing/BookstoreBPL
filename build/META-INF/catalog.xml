@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:9000/bookstore?wsdl=Bookstore.wsdl" uri="src/_references/_cache/localhost_9000/bookstore.wsdl_Bookstore.wsdl"/>
+    <system systemId="http://localhost:9000/customermanagement?wsdl=CustomerManagement.wsdl" uri="src/_references/_cache/localhost_9000/customermanagement.wsdl_CustomerManagement.wsdl"/>
+    <system systemId="http://localhost:9000/supplierfacade?wsdl=Supplier.wsdl" uri="src/_references/_cache/localhost_9000/supplierfacade.wsdl_Supplier.wsdl"/>
+    <system systemId="http://localhost:9000/warehouse?wsdl=Warehouse.wsdl" uri="src/_references/_cache/localhost_9000/warehouse.wsdl_Warehouse.wsdl"/>
+    <system systemId="http://localhost:9000/shipping?wsdl=ShippingService.wsdl" uri="src/_references/_cache/localhost_9000/shipping.wsdl_ShippingService.wsdl"/>
+</catalog>

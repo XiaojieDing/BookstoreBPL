@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="Supplier" targetNamespace="http://bookstore/" xmlns:ns1="http://bookstore/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://bookstore/" version="1.0" xmlns:tns="http://bookstore/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="item" type="tns:item" />
+<xs:element name="product" type="tns:product" />
+<xs:element name="supplierOrder" type="tns:supplierOrder" />
+<xs:element name="supplierOrderResponse" type="tns:supplierOrderResponse" />
+<xs:complexType name="supplierOrder">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:product" />
+<xs:element name="arg1" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="product">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string" />
+<xs:element minOccurs="0" name="singleUnitPrice" type="xs:decimal" />
+<xs:element minOccurs="0" name="items">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:item" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" />
+</xs:complexType>
+<xs:complexType name="item">
+<xs:sequence>
+<xs:element name="quantity" type="xs:int" />
+<xs:element minOccurs="0" name="product" type="tns:product" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="supplierOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:decimal" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="supplierOrderResponse">
+    <wsdl:part element="ns1:supplierOrderResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="supplierOrder">
+    <wsdl:part element="ns1:supplierOrder" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Supplier">
+    <wsdl:operation name="supplierOrder">
+      <wsdl:input message="ns1:supplierOrder" name="supplierOrder">
+    </wsdl:input>
+      <wsdl:output message="ns1:supplierOrderResponse" name="supplierOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

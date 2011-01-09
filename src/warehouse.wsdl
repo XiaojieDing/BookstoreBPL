@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="WarehouseJaxWSService" targetNamespace="http://services.bookstore/" xmlns:ns1="http://infosys.tuwien.ac.at/aic10/ass1/dto/warehouse" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.bookstore/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+  <wsdl:import location="http://localhost:9000/warehouse?wsdl=Warehouse.wsdl" namespace="http://infosys.tuwien.ac.at/aic10/ass1/dto/warehouse">
+    </wsdl:import>
+  <wsdl:binding name="WarehouseJaxWSServiceSoapBinding" type="ns1:Warehouse">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="warehouseOrder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="warehouseOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="warehouseOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="check_availability">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="check_availability">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="check_availabilityResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WarehouseJaxWSService">
+    <wsdl:port binding="tns:WarehouseJaxWSServiceSoapBinding" name="WarehouseJaxWSPort">
+      <soap:address location="http://localhost:9000/warehouse" />
+    </wsdl:port>
+  </wsdl:service>
+    <plnk:partnerLinkType name="WarehouseLinkType">
+        <plnk:role name="WarehouseProvider" portType="ns1:Warehouse"/>
+    </plnk:partnerLinkType>
+</wsdl:definitions>
